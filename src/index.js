@@ -13,6 +13,7 @@ import {
   ReactReduxFirebaseProvider,
   firebaseReducer
 } from 'react-redux-firebase'
+import { BrowserRouter } from "react-router-dom";
 // import { createFirestoreInstance, firestoreReducer } from 'redux-firestore' // <- needed if using firestore
  
 const fbConfig = {
@@ -57,11 +58,15 @@ const rrfProps = {
 }
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ReactReduxFirebaseProvider {...rrfProps}>
-      <App />
-    </ReactReduxFirebaseProvider>
-  </Provider>
+  <React.StrictMode>
+    <Provider store={store}>
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ReactReduxFirebaseProvider>
+    </Provider>
+  </React.StrictMode>
 ,document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
