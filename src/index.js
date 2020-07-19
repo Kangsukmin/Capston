@@ -14,6 +14,7 @@ import {
   firebaseReducer
 } from 'react-redux-firebase'
 import { BrowserRouter } from "react-router-dom";
+import pageReducer from "./reducers/pageReducer";
 // import { createFirestoreInstance, firestoreReducer } from 'redux-firestore' // <- needed if using firestore
  
 const fbConfig = {
@@ -42,13 +43,14 @@ firebase.initializeApp(fbConfig)
  
 // Add firebase to reducers
 const rootReducer = combineReducers({
-  firebase: firebaseReducer
+  firebase: firebaseReducer,
+  page : pageReducer,
   // firestore: firestoreReducer // <- needed if using firestore
 })
  
 // Create store with reducers and initial state
 const initialState = {}
-const store = createStore(rootReducer, initialState)
+const store = createStore(rootReducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
  
 const rrfProps = {
   firebase,
