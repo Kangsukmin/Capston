@@ -42,7 +42,7 @@ export const mainListItems = (
 export const secondaryListItems = (
   <div>
     <ListSubheader inset style={{ color : '#81f67d' }}>관리자</ListSubheader>
-    <ListItem buttononClick={
+    <ListItem button onClick={
       (event) => {
         event.preventDefault();
         convertPage(2);
