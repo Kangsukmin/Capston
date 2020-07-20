@@ -22,6 +22,7 @@ import Orders from './Orders';
 import backgroundurl from './img/max-bender.jpg';
 import Citycard from './Citycard';
 import Copyright from './Copyright';
+import MainPage from './containers/MainPage';
 
 const drawerWidth = 240;
 
@@ -163,80 +164,7 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            {/* Recent Orders */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Orders />
-              </Paper>
-            </Grid>
-            {/* Chart */}
-            <Grid item xs={12} md={3} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Citycard />
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={3} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Citycard />
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={3} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Citycard />
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={3} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Citycard />
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={3} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Citycard />
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={3} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Citycard />
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={3} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Citycard />
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={3} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Citycard />
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={3} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Citycard />
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={3} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Citycard />
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={3} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Citycard />
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={3} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Citycard />
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={3} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Citycard />
-              </Paper>
-            </Grid>
-          </Grid>
+          <MainPage classes={classes} />
           <Box pt={4}>
             <Copyright />
           </Box>
