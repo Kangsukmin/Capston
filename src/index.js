@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import firebase from 'firebase/app';
+import firebase from 'firebase';
 import 'firebase/auth';
 import 'firebase/firestore' // <- needed if using firestore
 // import 'firebase/functions' // <- needed if using httpsCallable
