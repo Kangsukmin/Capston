@@ -6,16 +6,13 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-// import 'firebase/firestore' // <- needed if using firestore
+import 'firebase/firestore' // <- needed if using firestore
 // import 'firebase/functions' // <- needed if using httpsCallable
-import { createStore, combineReducers, compose } from 'redux'
 import {
-  ReactReduxFirebaseProvider,
-  firebaseReducer
+  ReactReduxFirebaseProvider
 } from 'react-redux-firebase'
 import { BrowserRouter } from "react-router-dom";
-import pageReducer from "./reducers/pageReducer";
-// import { createFirestoreInstance, firestoreReducer } from 'redux-firestore' // <- needed if using firestore
+import { createFirestoreInstance } from 'redux-firestore' // <- needed if using firestore
 import store from "./store";
  
 const fbConfig = {
@@ -31,15 +28,15 @@ const fbConfig = {
  
 // react-redux-firebase config
 const rrfConfig = {
-  userProfile: 'users'
-  // useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
+  userProfile: 'users',
+  //useFirestoreForProfile: true ,// Firestore for Profile instead of Realtime DB
 }
  
 // Initialize firebase instance
 firebase.initializeApp(fbConfig)
  
 // Initialize other services on firebase instance
-// firebase.firestore() // <- needed if using firestore
+firebase.firestore() // <- needed if using firestore
 // firebase.functions() // <- needed if using httpsCallable
  
 // Add firebase to reducers
@@ -47,8 +44,8 @@ firebase.initializeApp(fbConfig)
 const rrfProps = {
   firebase,
   config: rrfConfig,
-  dispatch: store.dispatch
-  // createFirestoreInstance // <- needed if using firestore
+  dispatch: store.dispatch,
+  createFirestoreInstance // <- needed if using firestore
 }
 
 ReactDOM.render(
