@@ -28,7 +28,7 @@ const fbConfig = {
  
 // react-redux-firebase config
 const rrfConfig = {
-  userProfile: 'users',
+  userProfile: 'Administer',
   //useFirestoreForProfile: true ,// Firestore for Profile instead of Realtime DB
 }
  
