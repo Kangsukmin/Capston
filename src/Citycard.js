@@ -24,7 +24,7 @@ export default function Citycard() {
 
     return(
         <React.Fragment>
-            <Title><span className={classes.titleAlign}>서울특별시</span> <img className={classes.city} src = {city_image} /></Title>
+            <Title><span className={classes.titleAlign}>서울특별시</span> <img className={classes.city} src = {city_image} alt='서울특별시' /></Title>
             <div className={classes.maindiv}>
                 151,525
             </div>

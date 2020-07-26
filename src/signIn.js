@@ -69,7 +69,7 @@ export default function SignIn() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <img src={LTimage} width="150px"/>
+        <img src={LTimage} width="150px" alt='Living Together' />
         <Typography component="h1" variant="h5">
           Welcome, Living Together!
         </Typography>
