@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { compose } from 'redux';
 import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
-import { useFirebase, isLoaded } from 'react-redux-firebase';
+import { useFirebase } from 'react-redux-firebase';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -48,6 +46,8 @@ export default function AddressForm() {
         break;
       case "phone":
         setPhoneName(value)
+        break;
+      default:
         break;
     }
   };

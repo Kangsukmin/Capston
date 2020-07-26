@@ -1,6 +1,6 @@
-import 'firebase/auth';
-import 'firebase/firestore' // <- needed if using firestore
-import 'firebase/functions' // <- needed if using httpsCallable
+//import 'firebase/auth';
+//import 'firebase/firestore' // <- needed if using firestore
+//import 'firebase/functions' // <- needed if using httpsCallable
 import { createStore, combineReducers } from 'redux'
 import { firebaseReducer } from 'react-redux-firebase'
 import pageReducer from "./reducers/pageReducer";
