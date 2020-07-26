@@ -13,14 +13,14 @@ import { createFirestoreInstance } from 'redux-firestore' // <- needed if using 
 import store from "./store";
  
 const fbConfig = {
-  apiKey: "AIzaSyAHEZ7CWleRGUi-7rVVYgTIAWelFo8lU4M",
-  authDomain: "living-together-2afce.firebaseapp.com",
-  databaseURL: "https://living-together-2afce.firebaseio.com",
-  projectId: "living-together-2afce",
-  storageBucket: "living-together-2afce.appspot.com",
-  messagingSenderId: "536348318949",
-  appId: "1:536348318949:web:d0697b446812f7bc83080c",
-  measurementId: "G-T4C2FYYTL1"
+  apiKey: "AIzaSyAwaHlPclSQvzqQjrQecSOZlPDkgeE64vI",
+  authDomain: "livingtogether-8f106.firebaseapp.com",
+  databaseURL: "https://livingtogether-8f106.firebaseio.com",
+  projectId: "livingtogether-8f106",
+  storageBucket: "livingtogether-8f106.appspot.com",
+  messagingSenderId: "87068688529",
+  appId: "1:87068688529:web:84a293b1d20b79dbb83f30",
+  measurementId: "G-CDZBX9DLTP"
 }
  
 // react-redux-firebase config

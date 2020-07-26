@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { useFirestoreConnect } from "react-redux-firebase";
 
+let num;
+
 export default function AlertButton(){
     useFirestoreConnect({
         collection: 'alerts' ,
@@ -12,10 +14,10 @@ export default function AlertButton(){
     })
     
     const alerts = useSelector((state) => state.firestore.data.alerts);
-    console.log(alerts);
+    console.log(alerts);//여러번 실행됨
     
-    let num = 0;
-    if (alerts !== undefined){
+    num = 0;
+    if (alerts !== undefined && alerts !== null){
         num = Object.keys(alerts).length;
     }
 
