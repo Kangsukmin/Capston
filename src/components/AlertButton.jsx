@@ -12,6 +12,12 @@ export default function AlertButton(){
     })
     
     const alerts = useSelector((state) => state.firestore.data.alerts);
+    console.log(alerts);
+    
+    let num = 0;
+    if (alerts !== undefined){
+        num = Object.keys(alerts).length;
+    }
 
     const handleOnClick = () => {
         console.log(alerts);
@@ -20,7 +26,7 @@ export default function AlertButton(){
 
     return(
         <IconButton color="inherit" onClick={handleOnClick}>
-            <Badge badgeContent={1} color="secondary">
+            <Badge badgeContent={num} color="secondary">
                 <NotificationsIcon />
             </Badge>
         </IconButton>
