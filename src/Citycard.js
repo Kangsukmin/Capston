@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     },
     maindiv:{
         textAlign : 'center',
-        fontSize : 50
+        fontSize : 40
     },
     city:{
         width : 90,
