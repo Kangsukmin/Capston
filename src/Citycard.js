@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from './Title';
-import city_image from './city_image/seoul.png';
 import { makeStyles } from '@material-ui/core/styles';
+import image_list from './image';
 
 const useStyles = makeStyles((theme) => ({
     titleAlign:{
@@ -19,14 +19,14 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Citycard() {
+export default function Citycard(props) {
     const classes = useStyles();
 
     return(
         <React.Fragment>
-            <Title><span className={classes.titleAlign}>서울특별시</span> <img className={classes.city} src = {city_image} alt='서울특별시' /></Title>
+            <Title><span className={classes.titleAlign}>{props.city}</span> <img className={classes.city} src = {image_list[props.city]} alt={props.city} /></Title>
             <div className={classes.maindiv}>
-                151,525
+                {props.number}
             </div>
         </React.Fragment>
     )

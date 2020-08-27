@@ -46,7 +46,6 @@ export default function SignIn() {
             alert(error.message);
             window.location.reload(false);
         }).then(() => {
-            alert("Login Success");
             history.push("/main");
           });
 
