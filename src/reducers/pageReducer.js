@@ -10,6 +10,8 @@ export default function pageReducer(state = pageInitialState, action){
             return { value : 1 }
         case 2:
             return { value : 2 }
+        case 3:
+            return { value : 3 }
         default:
             return state;
     }

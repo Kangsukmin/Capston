@@ -2,6 +2,8 @@ import React from 'react';
 import Dashboard from './Dashboard';
 import Profile from './Profile';
 import Tables from './Tables';
+import Sample from './sample';
+import Alertpage from './Alertpage';
 
 export default function MainPage(props){
     switch(props.value){
@@ -12,6 +14,8 @@ export default function MainPage(props){
         case 2:
             return (<Profile />)
             //return (<Sample />)
+        case 3:
+            return (<Alertpage />)
         default :
             return (<Dashboard classes={props.classes} />)
     }

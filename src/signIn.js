@@ -10,6 +10,12 @@ import { useFirebase } from "react-redux-firebase";
 import { useHistory } from "react-router-dom";
 import LTimage from "./img/LT.png";
 import Copyright from './Copyright';
+import { useSelector } from 'react-redux';
+import { isLoaded, isEmpty } from 'react-redux-firebase';
+import {
+  Route,
+  Redirect
+} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -31,91 +37,107 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignIn(...rest) {
   const classes = useStyles();
   const firebase = useFirebase();
   const history = useHistory();
   const [emailValue, setEmail] = useState("");
+  const auth = useSelector(state => state.firebase.auth)
   const [passwordValue, setPassword] = useState("");
 
   const signInWithEmail = () => {
     firebase.login({
-            email: emailValue,
-            password: passwordValue
-        }).catch((error) => {
-            alert(error.message);
-            window.location.reload(false);
-        }).then(() => {
-            history.push("/main");
-          });
+      email: emailValue,
+      password: passwordValue
+    }).catch((error) => {
+      alert(error.message);
+      window.location.reload(false);
+    }).then(() => {
+      history.push("/main");
+    });
 
   };
 
   const handleChange = ({ currentTarget: { name, value } }) => {
     if (name === "email") {
-        setEmail(value);
+      setEmail(value);
     }
     else if (name === "password") {
-        setPassword(value);
+      setPassword(value);
     }
   };
 
   const handleSubmit = () => {
-      signInWithEmail();
+    signInWithEmail();
   }
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <img src={LTimage} width="150px" alt='Living Together' />
-        <Typography component="h1" variant="h5">
-          Welcome, Living Together!
-        </Typography>
-        <form className={classes.form} onSubmit={(event) => {
-            event.preventDefault();
-            handleSubmit();
-        }}>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-            value={emailValue}
-            onChange={handleChange}
+    <Route
+      {...rest}
+      render={({ location }) =>
+        isLoaded(auth) && !isEmpty(auth) ? (
+          <Redirect
+            to={{
+              pathname: "/main",
+              state: { from: location }
+            }}
           />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            value={passwordValue}
-            onChange={handleChange}
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign In
-          </Button>
-        </form>
-      </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
-    </Container>
+        ) : (
+            <Container component="main" maxWidth="xs">
+              <CssBaseline />
+              <div className={classes.paper}>
+                <img src={LTimage} width="150px" alt='Living Together' />
+                <Typography component="h1" variant="h5">
+                  Welcome, Living Together!
+                </Typography>
+                <form className={classes.form} onSubmit={(event) => {
+                  event.preventDefault();
+                  handleSubmit();
+                }}>
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    autoFocus
+                    value={emailValue}
+                    onChange={handleChange}
+                  />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                    value={passwordValue}
+                    onChange={handleChange}
+                  />
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                  >
+                    Sign In
+                  </Button>
+                </form>
+              </div>
+              <Box mt={8}>
+                <Copyright />
+              </Box>
+            </Container>
+          )
+      }
+    />
   );
 }
+

@@ -1,21 +1,39 @@
+import seoul from './city_image/seoul.png'
+import busan from './city_image/busan.png'
+import chollabuk from './city_image/Chollabuk-do.png'
+import chollanam from './city_image/Chollanam-do.png'
+import chungcheongbuk from './city_image/Chungcheongbuk-do.png'
+import chungcheongnam from './city_image/Chungcheongnam-do.png'
+import daegu from './city_image/daegu.png'
+import daejeon from './city_image/Daejeon.png'
+import gangwon from './city_image/Gangwon-do.png'
+import gwangju from './city_image/gwangju.png'
+import gyeonggi from './city_image/Gyeonggi-do.png'
+import gyeongsangbuk from './city_image/Gyeongsangbuk-do.png'
+import gyeongsangnam from './city_image/Gyeongsangnam-do.png'
+import incheon from './city_image/incheon.png'
+import jeju from './city_image/Jejudo.png'
+import sejong from './city_image/sejong.png'
+import ulsan from './city_image/Ulsan.png'
+
 const image_list = {
-    '서울특별시': "https://w.namu.la/s/44f1a65624c1466a88972c45c9e78de0f0d5515e02beede3c67bfb6763c3ea8c8eae0d24f3742d1e39f1bf5992954cf1ac3c1a32436d5f72dbaa74892950ca45e11f798d212ea909aee25eef6096d5ee05a16cbf40a36d2f2314c78cf5beba4cdd5e3717cc8c786169b1b6e8b39e723b",
-    '부산광역시': "https://ww.namu.la/s/ea5bd704eb003b15abbc0e343e4739a041fa620deffc402bfef129ff2d49dab5d59cfd440ef71b40106b5dd18ad24e66bd86d8126ba211af73fe6f589b8cde11f765ce48a09cf341ab15c2cbba6f6892bfaab551ef2c4f493ab4352c35ffd7b38b4cdc8f43e4b41497e5247d2bd1be1d",
-    '충청북도': "https://ww.namu.la/s/40e23021a6afd4310f47342b1b47a0d145b53406ad4255ddee5ac2be2d984869107c82d6a01ff38ef0b82df8495dac0f5e11f08c522094edc04ce583e7473c4c796c1c90d862ebf48683843a9d430f4fc61ea547668ef4047fcb538f99a25d0fe9fc47a55a05692074a347c50eb9f429",
-    '충청남도': "https://w.namu.la/s/f0171e30f95d799b35b25013230064e9219c734cf9d00fe6c5b2fb175c4fa2adcab2dea6e6d56a7f88194c46347c57a564680e61adcfaa15b4202d086ab5e40f1165b1aa269e845449a95d5769b8d4e81a50b2b830ad268e545262f1b3cfcca2bf3754f7f6bc80aa870cfe9dd87cb267",
-    '대구광역시': "https://ww.namu.la/s/57a60fa2e22cb657fca485451d92c8912cef99dbf3b90c472e46dac71040af90b2031195cb6dc96d210f0df0f63ef40abc8f35e3695335f90fcdfcc4f7dc0175441d214c5b32b09631bc5bdaf6a2e7f215e294c9d1daad763c5bc7333da65157c3e31e22b8d3cf73342434dbfe21224c",
-    '대전광역시': "https://ww.namu.la/s/26f4f85ceb18f66b130d9e7e00b87f960169264c4134541e25446d815877d8876cb44dfbc864745007eea3d8751237b92f391c7cf94ac00b0c3e21c28d51cfa6b846dd504d2f28bdf8ca542f4e010649fc211c48d324eb59a06c5f48e4e37a7d1fbd1f6e9b49618d8884c5f26c3ee505",
-    '강원도': "https://ww.namu.la/s/9466c669a7e6c397bf9192362d644ce7a56dd5302434e0172af5cd6285d6540f7fb83c9ae8a9e5aa86b36058b4229c50c088adfe7618cf667bedcf1bf12504f9a38a97d97f33f94c189f59d05c89346241d28d01b0ebcc9a1a986270c39a4476",
-    '광주광역시': "https://ww.namu.la/s/5d26c6220fc9c12629f5eb2ec25247d352089331d98773cabc3ec15546aef47393c69f9feb0f24b10b2d8c47266a0a2d321cbfdb78fcf921afa11c34f048dc9f7fe677d653a318dcd5770eba25d46cf1e9fd88cc9f2400925f15eb5d8b830858",
-    '경기도': "https://w.namu.la/s/a195ca9526b0aff792799dc665544ed74bbfd7661192c1b1b4f22ab0d339c6f52f5cfbbfc5809c39e7d51bfcf34a06d47f723144374a39547083e1caec5052abc5f7b5be4cd902346c28d1181df92fb7c3c7571c83dabf7d83f621e637d50a19",
-    '경상북도': "https://ww.namu.la/s/d5bf33fd0ebc02183566e4aab5d0515e28e28dc1767e057e1b7d5adb189fc00da0f153aba095e33b157439508e95d7c02dd853a0fc1ed1d69bbf8cce9a4b2a536c6dbafefe26e73b28b30186c28d866083a993cfe0c8a749986ef774f0db1208",
-    '경상남도': "https://ww.namu.la/s/3c1432b9064c009aa3153e17e88f6260defe96e365dd283f76bd4db2e938a109857887ac426a0e3424ad3635a86af3265562b082096719f23b792af713af5074c0631aae6f4ea8f8583a44934b327a96146c7e94b5965c18d5403fd0c36b170589865c447fb237eca9ba013ad3da2f7a",
-    '인천광역시': "https://w.namu.la/s/82d715e5d2780801aa3dfd18fa0dc1249d28d88fd2f354d8a0e9b8fc75868f0eeb3afabf3bd8a963480fb2455e85f859b538d3a4942783f07059d0c1e2690e0e43d5cb8d022878592590ff2298f08a02ddb1d55e5017c6207d5dc6f03393281e004736abd575cc00656136274bb4ee06",
-    '제주도': "https://ww.namu.la/s/776e22658997efb54c9365e8b2b7148d7f084778c9244cefd3f94717d5f6bb3b79941ff14fda4ba469d5d922b7e797703b5a0000cf714ab56d49538cf80c3e62c5b696d4c3762214b700352b1462bec2550864b6e9a37c87c6af527f81e8144c79e8d16f1cae13fc1f2d6559c8941eb2",
-    '전라북도': "https://w.namu.la/s/8e4c32dc17ccca41a5cb7a7e525d7e456d20115719d4e1b1a9030a1feaffac1014b4d79476dab7fe262a8fad1afed773ca3c89e180659ebf03eac13e332b0273a4cd155ef83b88f920e79f676241009057ff6f02988afde06c0454e123c976e237be4e6f785ca709e45e1b6724732052",
-    '전라남도': "https://ww.namu.la/s/8a2ce7b8f9f588c0405139804b3a356683d10a2019d7e7045687a960f8541b363de5059c934fbe74701d6f49f7dbf2862bef0363170f8fe52ccbf16bc5ae57b6293ed80e0fa38748c8ae3090c1136bb9093534f5336acf4cea400896a5ba3a2da4c0018f66c4518397de051f14f49b96",
-    '세종특별자치시': "https://ww.namu.la/s/d565e5995fb8a82c1905c6365d8c0594a3ad06f064d997844e364a2e403a5d06faeca018ea299b8560f05d0d2c9c897af743fffa2de1401c7ca0c6b686cc71aa0c93ab4d7ebed074cf764f8d8eb8727e04ef6a79853765d53d3eb7d1eaae2664241ef26a85700c0b13e604b681c94ec5",
-    '울산광역시': "https://ww.namu.la/s/b6800ffab396cd95616f8cec7c03e57ef3283b26cc2b76f86223211410ad11fc257a57c63c18696dbea4dac8c345f5ff9d98e1944bc8b077b489cb32a00a1f36ee5d9973a82fb1a9dc73a75f35f69c5978ca29a3ff5ee0c441894fd4d919d3415899992d62830bda1b2a025e04161c78"
+    '서울특별시': seoul,
+    '부산광역시': busan,
+    '충청북도': chungcheongbuk,
+    '충청남도': chungcheongnam,
+    '대구광역시': daegu,
+    '대전광역시': daejeon,
+    '강원도': gangwon,
+    '광주광역시': gwangju,
+    '경기도': gyeonggi,
+    '경상북도': gyeongsangbuk,
+    '경상남도': gyeongsangnam,
+    '인천광역시': incheon,
+    '제주도': jeju,
+    '전라북도': chollabuk,
+    '전라남도': chollanam,
+    '세종특별자치시': sejong,
+    '울산광역시': ulsan
 }
 
 export default image_list;
