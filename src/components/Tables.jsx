@@ -1,7 +1,7 @@
 import React from 'react';
 import MUIDataTable from "mui-datatables";
 import { useSelector } from 'react-redux';
-import { useFirebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase';
+import { useFirebaseConnect, isLoaded, isEmpty, useFirebase } from 'react-redux-firebase';
 
 export default function Tables() {
     useFirebaseConnect([
@@ -9,20 +9,23 @@ export default function Tables() {
     ])
 
     const users = useSelector((state) => state.firebase.ordered.Users)
+    const firebase = useFirebase();
 
-    console.log(users);
+    //console.log(users);
     let user_list = null
 
     if (!isLoaded(users)) {
         return <div>Loading...</div>
     } else {
         user_list = Object.keys(users).map(v=>{
-            const temp = [];
-            temp.push(users[v].value.name);
-            temp.push(users[v].value.city);
-            temp.push(users[v].value.address1 + " " + users[v].value.address2);
-            temp.push(users[v].value.phone);
-            temp.push(users[v].value.join);
+            const temp = {
+                이름: users[v].value.name,
+                도시: users[v].value.city,
+                주소: users[v].value.address1 + " " + users[v].value.address2,
+                연락처: users[v].value.phone,
+                가입일: users[v].value.join,
+                value: users[v].key,
+            }
             return temp;
         });
     }
@@ -35,6 +38,11 @@ export default function Tables() {
 
     const options = {
         filterType: 'checkbox',
+        onRowsDelete: (rowsDeleted, dataRows) => {
+            rowsDeleted.data.map(v => 
+                firebase.remove(`Users/${user_list[v.dataIndex].value}`)
+        )
+        }
     };
     return (
         <MUIDataTable

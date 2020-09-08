@@ -21,7 +21,7 @@ export default function AlertButton() {
 
     let num;
     if (alerts !== undefined && alerts !== null) {
-        num = Object.keys(alerts).filter(v=>!v.is_read).length;
+        num = Object.keys(alerts).filter(v=>!alerts[v].is_read).length;
     }
 
     return (
