@@ -17,11 +17,11 @@ export default function AlertButton() {
     })
     
     const alerts = useSelector((state) => state.firestore.data.alerts);
-    //console.log(alerts);//여러번 실행됨
+    console.log(alerts);//여러번 실행됨
 
     let num;
     if (alerts !== undefined && alerts !== null) {
-        num = Object.keys(alerts).length;
+        num = Object.keys(alerts).filter(v=>!v.is_read).length;
     }
 
     return (
