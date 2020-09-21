@@ -3,7 +3,9 @@ import clsx from 'clsx';  //className 추가하거나 삭제
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
+import { useFirebase } from "react-redux-firebase";
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
@@ -107,6 +109,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const firebase = useFirebase();
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -114,6 +117,10 @@ export default function Dashboard() {
     setOpen(false);
   };
   //const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const handleLogout = (e) => {
+    e.preventDefault();
+    firebase.logout();
+  }
 
   return (
     <div className={classes.root}>
@@ -133,6 +140,7 @@ export default function Dashboard() {
             Living-Together
           </Typography>
           <AlertIcon />
+          <Button variant="contained" color="secondary" onClick={handleLogout}>logout</Button>
         </Toolbar>
       </AppBar>
       <Drawer
