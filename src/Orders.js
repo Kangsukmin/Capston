@@ -33,11 +33,11 @@ export default function Orders() {
   if (isLoaded(users)) {
     user_list = Object.keys(users).map(v => {
       const temp = [];
-      temp.push(users[v].value.name);
-      temp.push(users[v].value.city);
-      temp.push(users[v].value.address1 + " " + users[v].value.address2);
-      temp.push(users[v].value.phone);
-      temp.push(users[v].value.join);
+      temp.push(users[v].value.profile.name);
+      temp.push(users[v].value.profile.city);
+      temp.push(users[v].value.profile.fullAddress + " " + users[v].value.profile.extraAddress);
+      temp.push(users[v].value.profile.phoneNumber);
+      temp.push(users[v].value.profile.join);
       return temp;
     }).sort((a,b) => {
       if (a[4] > b[4]){
@@ -60,7 +60,7 @@ export default function Orders() {
             <TableCell>이름</TableCell>
             <TableCell>도시</TableCell>
             <TableCell>주소</TableCell>
-            <TableCell align="right">연락처</TableCell>
+            <TableCell>연락처</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -70,7 +70,7 @@ export default function Orders() {
               <TableCell>{row[0]}</TableCell>
               <TableCell>{row[1]}</TableCell>
               <TableCell>{row[2]}</TableCell>
-              <TableCell align="right">{row[3]}</TableCell>
+              <TableCell>{row[3]}</TableCell>
             </TableRow>
           ))}
         </TableBody>

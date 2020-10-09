@@ -5,12 +5,22 @@ import { useSelector } from "react-redux";
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { useFirestoreConnect } from "react-redux-firebase";
 import store from '../store';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    buttonStyle:{
+        marginRight: 15,
+    }
+}));
+
 
 const convertPage = (typeNum) => {
   store.dispatch({type:typeNum})
 }
 
 export default function AlertButton() {
+    const classes = useStyles();
+
     useFirestoreConnect({
         collection: 'alerts',
         storeAs: "alerts",
@@ -25,7 +35,7 @@ export default function AlertButton() {
     }
 
     return (
-        <IconButton color="inherit" onClick={(event) => {
+        <IconButton className={classes.buttonStyle} color="inherit" onClick={(event) => {
             event.preventDefault();
             convertPage(3)
           }}>

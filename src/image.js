@@ -17,7 +17,7 @@ import sejong from './city_image/sejong.png'
 import ulsan from './city_image/Ulsan.png'
 
 const image_list = {
-    '서울특별시': seoul,
+    '서울': seoul,
     '부산광역시': busan,
     '충청북도': chungcheongbuk,
     '충청남도': chungcheongnam,
@@ -32,7 +32,7 @@ const image_list = {
     '제주도': jeju,
     '전라북도': chollabuk,
     '전라남도': chollanam,
-    '세종특별자치시': sejong,
+    '세종시': sejong,
     '울산광역시': ulsan
 }
 

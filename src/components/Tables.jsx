@@ -19,11 +19,11 @@ export default function Tables() {
     } else {
         user_list = Object.keys(users).map(v=>{
             const temp = {
-                이름: users[v].value.name,
-                도시: users[v].value.city,
-                주소: users[v].value.address1 + " " + users[v].value.address2,
-                연락처: users[v].value.phone,
-                가입일: users[v].value.join,
+                이름: users[v].value.profile.name,
+                도시: users[v].value.profile.city,
+                주소: users[v].value.profile.fullAddress + " " + users[v].value.profile.extraAddress,
+                연락처: users[v].value.profile.phoneNumber,
+                가입일: users[v].value.profile.join,
                 value: users[v].key,
             }
             return temp;
@@ -41,7 +41,7 @@ export default function Tables() {
         onRowsDelete: (rowsDeleted, dataRows) => {
             rowsDeleted.data.map(v => 
                 firebase.remove(`Users/${user_list[v.dataIndex].value}`)
-        )
+            )
         }
     };
     return (
