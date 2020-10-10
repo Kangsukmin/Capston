@@ -5,7 +5,9 @@ import image_list from './image';
 
 const useStyles = makeStyles((theme) => ({
     titleAlign:{
-        lineHeight: 5,
+        fontSize : 15,
+        fontWeight: 600,
+        lineHeight: 7,
         textAlign : 'right',
     },
     maindiv:{

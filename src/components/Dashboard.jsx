@@ -12,22 +12,22 @@ export default function Dashboard(props) {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const city_list = {
     '서울': 0,
-    '부산광역시': 0,
-    '충청북도': 0,
-    '충청남도': 0,
-    '대구광역시': 0,
-    '대전광역시': 0,
-    '강원도': 0,
-    '광주광역시': 0,
-    '경기도': 0,
-    '경상북도': 0,
-    '경상남도': 0,
-    '인천광역시': 0,
-    '제주도': 0,
-    '전라북도': 0,
-    '전라남도': 0,
-    '세종시': 0,
-    '울산광역시': 0
+    '부산': 0,
+    '충북': 0,
+    '충남': 0,
+    '대구': 0,
+    '대전': 0,
+    '강원': 0,
+    '광주': 0,
+    '경기': 0,
+    '경북': 0,
+    '경남': 0,
+    '인천': 0,
+    '제주특별자치도': 0,
+    '전북': 0,
+    '전남': 0,
+    '세종특별자치시': 0,
+    '울산': 0
   }
 
   useFirebaseConnect([
@@ -41,7 +41,9 @@ export default function Dashboard(props) {
   if (!isLoaded(users)) {
     return <div>Loading...</div>
   } else {
-    user_list = Object.keys(users).map(v => users[v].value.profile.city);
+    user_list = Object.keys(users).map(v => {
+      return users[v].value.profile.city
+    });
     for (let i of user_list) {
       city_list[i] += 1;
     }

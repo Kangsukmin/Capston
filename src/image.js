@@ -18,22 +18,22 @@ import ulsan from './city_image/Ulsan.png'
 
 const image_list = {
     '서울': seoul,
-    '부산광역시': busan,
-    '충청북도': chungcheongbuk,
-    '충청남도': chungcheongnam,
-    '대구광역시': daegu,
-    '대전광역시': daejeon,
-    '강원도': gangwon,
-    '광주광역시': gwangju,
-    '경기도': gyeonggi,
-    '경상북도': gyeongsangbuk,
-    '경상남도': gyeongsangnam,
-    '인천광역시': incheon,
-    '제주도': jeju,
-    '전라북도': chollabuk,
-    '전라남도': chollanam,
-    '세종시': sejong,
-    '울산광역시': ulsan
+    '부산': busan,
+    '충북': chungcheongbuk,
+    '충남': chungcheongnam,
+    '대구': daegu,
+    '대전': daejeon,
+    '강원': gangwon,
+    '광주': gwangju,
+    '경기': gyeonggi,
+    '경북': gyeongsangbuk,
+    '경남': gyeongsangnam,
+    '인천': incheon,
+    '제주특별자치도': jeju,
+    '전북': chollabuk,
+    '전남': chollanam,
+    '세종특별자치시': sejong,
+    '울산': ulsan
 }
 
 export default image_list;

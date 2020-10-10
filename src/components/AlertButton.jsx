@@ -3,9 +3,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import { useSelector } from "react-redux";
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { useFirestoreConnect } from "react-redux-firebase";
 import store from '../store';
 import { makeStyles } from '@material-ui/core/styles';
+import { useFirebaseConnect, isLoaded } from 'react-redux-firebase';
 
 const useStyles = makeStyles((theme) => ({
     buttonStyle:{
@@ -21,17 +21,18 @@ const convertPage = (typeNum) => {
 export default function AlertButton() {
     const classes = useStyles();
 
-    useFirestoreConnect({
-        collection: 'alerts',
-        storeAs: "alerts",
-    })
+    useFirebaseConnect(['Users']);
     
-    const alerts = useSelector((state) => state.firestore.data.alerts);
-    console.log(alerts);//여러번 실행됨
+    const users = useSelector((state) => state.firebase.ordered.Users);
+    // console.log(alerts); // 여러번 실행됨
 
-    let num;
-    if (alerts !== undefined && alerts !== null) {
-        num = Object.keys(alerts).filter(v=>!alerts[v].is_read).length;
+    let num = null;
+    if (isLoaded(users)) {
+        Object.keys(users).forEach(v => {
+            if (users[v].value.emergency.time) {
+                num += 1;
+            }
+        });
     }
 
     return (
