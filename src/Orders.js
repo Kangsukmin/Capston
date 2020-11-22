@@ -31,7 +31,7 @@ export default function Orders() {
 
 
   if (isLoaded(users)) {
-    user_list = Object.keys(users).map(v => {
+    user_list = Object.keys(users).filter(v => users[v].value.profile).map(v => {
       const temp = [];
       temp.push(users[v].value.profile.name);
       temp.push(users[v].value.profile.city);
