@@ -28,7 +28,7 @@ export default function AlertButton() {
 
     let num = null;
     if (isLoaded(users)) {
-        Object.keys(users).forEach(v => {
+        Object.keys(users).filter(v => users[v].value.emergency).forEach(v => {
             if (users[v].value.emergency.time) {
                 num += 1;
             }

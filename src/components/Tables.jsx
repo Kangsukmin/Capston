@@ -17,7 +17,7 @@ export default function Tables() {
     if (!isLoaded(users)) {
         return <div>Loading...</div>
     } else {
-        user_list = Object.keys(users).map(v=> {
+        user_list = Object.keys(users).filter(v => users[v].value.profile).map(v=> {
             const temp = {
                 이름: users[v].value.profile.name,
                 도시: users[v].value.profile.city,

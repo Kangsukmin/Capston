@@ -15,12 +15,12 @@ export default function Alertpage(props) {
     if (!isLoaded(users)) {
         return <div>Loading...</div>
     } else {
-        alert_list = Object.keys(users).filter(v => users[v].value.emergency.time).map(v=>{
+        alert_list = Object.keys(users).filter(v => users[v].value.emergency&&users[v].value.profile).map(v=>{
             const temp = {
                 이름: users[v].value.profile.name,
                 도시: users[v].value.profile.city,
                 주소: users[v].value.profile.fullAddress + " " + users[v].value.profile.extraAddress,
-                연락처: users[v].value.phoneNumber,
+                연락처: users[v].value.profile.phoneNumber,
                 비상상황시각: users[v].value.emergency.time,
                 value: users[v].key
             }

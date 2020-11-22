@@ -42,7 +42,9 @@ export default function Dashboard(props) {
     return <div>Loading...</div>
   } else {
     user_list = Object.keys(users).map(v => {
-      return users[v].value.profile.city
+      if (users[v].value.profile){
+        return users[v].value.profile.city
+      }
     });
     for (let i of user_list) {
       city_list[i] += 1;
